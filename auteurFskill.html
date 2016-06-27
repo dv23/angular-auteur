@@ -1,0 +1,69 @@
+<!DOCTYPE html> <!-- declaration html5 -->
+<html ng-app="MonApplication">
+	<head>
+		<title>Auteur mise en page</title>
+		<link rel="stylesheet" href="modele3.css">
+	</head>
+	<body ><!-- corps de page -->
+	<h1>Nom 		Prenom			Fonction		Modifier	Supprimer</h1>
+	<h1>{{auteur.nom}} {{auteur.prenom}} </h1>
+	<div id="conteneur">
+		<header>auteur.nom   prenom fonction  Modifier Supprimer Voir</header>
+			<div class ="gauche" ng-controller="auteursController">
+		<TABLE BORDER>
+		<TR>
+			<TH>Nom </TH>
+			<th>Prenom </th>
+			<TH>Fonction </TH>
+			<TH>Modifier </TH>
+			<TH>Suprimer </TH>
+		</TR>
+		</TABLE>
+			<fieldset>
+			<legend>      Nom	Prenom Fonction Modifier Supprimer</legend> <!-- Titre du fieldset -->
+<!--td-->
+<!--Td-->
+			<ul ng-repeat="auteur in auteurs">
+				<form ng-submit="editAuteur(auteur,id_auteur)">
+<!--TR-->		
+<!--td-->		
+					<input type="text" name="auteurName" ng-model="auteur.nom">
+<!--/td-->
+<!--td-->
+					<input type="text" name="" ng-model="auteur.prenom">
+<!--/td-->
+<!--td-->
+					<input type="" name="" ng-model="auteur.fonction">
+<!--td-->
+<!--td-->
+					<input type="submit" 
+							name="" 
+							class=btn 
+							value="Modifier">
+							<!--data-ng-click="func.postuler(postulerForm)"-->	
+			<!--ng-click="editAuteur(auteur.name,auteur.prenom,auteur.fonction)"-->
+
+<!--/td-->
+<!--td-->			
+					<input type="submit" name="" class=btn value="Suprimer">
+<!--/td-->			
+<!--td-->	
+					<input type="submit" name="" class=btn value="Voir">
+<!--/td-->			<a ng-href="#/auteur/{{author_id}}"	></a>	
+				</form>	
+			</ul>
+<!--/Tr-->
+<!--/TABLE-->
+		g</div>
+		<!--div class ="clear">
+		</div-->
+	</div>
+	<!--/div-->
+	<ng-view></ng-view>
+	<script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script type="text/javascript" src="app/config/app.js"></script>
+    <script type="text/javascript" src="app/src/controllers/controller.js"></script>
+</body>
+</html>
